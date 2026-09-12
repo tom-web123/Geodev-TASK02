@@ -6,7 +6,7 @@ Which residential areas in Tabata Ward, Ilala Municipality are more than 300m fr
 
 ## Why it matters
 
-Tabata Ward is repeatedly flagged in Dar es Salaam disaster-planning exercises as flood-prone. A footway or unpaved road that becomes impassable during a flood can cut a household off from emergency responders even when help is nearby on the map. Ward disaster-management officers could use this to prioritize which residential clusters need alternate access routes before the next flood season.
+Tabata Ward is repeatedly flagged in Dar es Salaam disaster-planning exercises as flood-prone. A footway or unpaved road that becomes impassable during a flood can cut a household off from emergency responders even when help is nearby. Ward disaster-management officers could use this to prioritize which residential clusters need alternate access routes before the next flood season.
 
 ## The data I need
 
