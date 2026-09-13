@@ -12,10 +12,12 @@ Tabata Ward is repeatedly flagged in Dar es Salaam disaster-planning exercises a
 
 | Dataset | Source & Link | Features | Geometry Type | Key Columns | Gaps / Missing Values |
 |---|---|---|---|---|---|
-| Tabata Ward boundary | OpenStreetMap, via QuickOSM plugin in QGIS — https://www.openstreetmap.org/ | 1 | MultiPolygon | `Municipal`, `Ward`, `Subward`, `Feature`, `Latitude`, `Longitude` | None — single feature, fully populated |
-| Buildings | HOTOSM Export Tool — https://export.hotosm.org/v3/ | 16,879 | MultiPolygon | `osm_id`, `osm_type`, `building` | `name` present on <1% of buildings; most optional tags (address, levels, material) empty for the majority |
-| Road network | HOTOSM Export Tool — https://export.hotosm.org/v3/ | 564 | MultiLineString | `highway`, `name`, `ward_name` | `name` missing on 72% of roads (mostly unnamed footways/service roads) |
-| Amenity | OpenStreetMap, via QuickOSM plugin in QGIS — https://www.openstreetmap.org/ | 65 | Point | `amenity`, `Name`, `xcoord`, `ycoord` | `Name` missing on 46% of points |
+| Tabata Ward boundary | OpenStreetMap, via QuickOSM plugin in QGIS — https://www.openstreetmap.org/ | 1 | MultiPolygon | `Municipal`,<br>`Ward`, `Subward`,<br>`Feature`,<br>`Latitude`,<br>`Longitude` | None — single feature, fully populated |
+| Buildings | HOTOSM Export Tool — https://export.hotosm.org/v3/ | 16,879 | MultiPolygon | `osm_id`,<br>`osm_type`,<br>`building` | `name` present on <1% of buildings; most optional tags (address, levels, material) empty for the majority |
+| Road network | OpenStreetMap, via QuickOSM plugin in QGIS — https://www.openstreet.org/ | 564 | MultiLineString | `highway`, `name`| `name` missing on 72% (405/564), mostly unnamed footways/service roads; for segments matched to a nearby but non-identical OSM way, since not every segment had a close geometric match in the source `highway_unclassified` extract |
+| Amenity | OpenStreetMap, via QuickOSM plugin in QGIS — https://www.openstreetmap.org/ | 16 | Point | `amenity`, `name`,|  Most optional tags are sparsely populated: `religion` missing on 14/16, `operator` on 15/16,|
+
+
 
 All four datasets that I have shared are all in a single CRS — EPSG:32737 (WGS 84 / UTM Zone 37S) in my ACCESSIBILITY.qgz — so no reprojection is needed before analysis.
 
