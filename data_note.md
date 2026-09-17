@@ -1,4 +1,6 @@
-# Data Note — Tabata Ward Road Accessibility
+# Data Note 
+
+Tabata Ward Road Accessibility
 
 All datasets were pulled from OpenStreetMap using the QuickOSM plugin in QGIS, clipped to Tabata Ward, and saved as GeoPackage (`.gpkg`) files. Feature counts and column contents below were read directly from each `.gpkg`.
 
