@@ -8,7 +8,7 @@ All datasets were pulled from OpenStreetMap using the QuickOSM plugin in QGIS, c
 
 ## 1. Ward boundary — `tabata_boundary.gpkg`
 
-- **Source:** OpenStreetMap, digitized by the Ramani Huria community-mapping project (Oct–Nov 2015) — https://ramanihuria.org/en/tabata/
+- **Source:** OpenStreetMap: https://www.openstreetmap.org/
 - **Feature count:** 1
 - **Geometry type:** MultiPolygon
 - **CRS:** EPSG:32737 (UTM Zone 37S)
@@ -18,7 +18,7 @@ All datasets were pulled from OpenStreetMap using the QuickOSM plugin in QGIS, c
 
 ## 2. Road network — `roads.gpkg`
 
-- **Source:** OpenStreetMap (via QuickOSM, `highway=*`) — https://www.openstreetmap.org/copyright
+- **Source:** OpenStreetMap (via QuickOSM, `highway=*`) — https://www.openstreetmap.org/
 - **Feature count:** 564
 - **Geometry type:** MultiLineString
 - **CRS:** EPSG:32737 (UTM Zone 37S)
@@ -29,7 +29,7 @@ All datasets were pulled from OpenStreetMap using the QuickOSM plugin in QGIS, c
 
 ## 3. Buildings — `buildings.gpkg`
 
-- **Source:** OpenStreetMap (via QuickOSM, `building=*`) — https://www.openstreetmap.org/copyright
+- **Source:** HotOSM — https://export.hotosm.org/v3/ 
 - **Feature count:** 16,879
 - **Geometry type:** MultiPolygon
 - **CRS:** EPSG:32737 (UTM Zone 37S)
@@ -39,19 +39,12 @@ All datasets were pulled from OpenStreetMap using the QuickOSM plugin in QGIS, c
 
 ## 4. Amenities (schools) — `amenity.gpkg`
 
-- **Source:** OpenStreetMap (via QuickOSM, `amenity=*`) — https://www.openstreetmap.org/copyright
+- **Source:** OpenStreetMap (via QuickOSM, `amenity=*`) —  https://www.openstreetmap.org/
 - **Feature count:** 16
 - **Geometry type:** Point
-- **CRS:** EPSG:4326 (WGS 84) — **note: this differs from the other three layers, which are in EPSG:32737. Reproject before any distance analysis.**
+- **CRS:** EPSG:32737 (UTM Zone 37S)
 - **Key columns:** `amenity`, `name`, `name:en`, `isced:level`, `operator`, `addr:ward`, `addr:subward`, `religion`, `condition`
 - **Attribute values:** all 16 features are tagged `amenity = school` — no health facilities (hospitals/clinics) came through this query. (Hospitals do appear separately, tagged as `building = hospital`, in `buildings.gpkg` — 8 features.)
 - **Gaps/notes:** `name` is present for 14 of 16 schools; more detailed attributes (`isced:level`, `religion`, `operator`) are missing for most records, which is normal for OSM school POIs and not a problem for a distance-based analysis. Because no clinics/hospitals came through the amenity query, health-facility accessibility will need to draw on the 8 `building=hospital` records instead — worth flagging as a real coverage gap since it means the "health facilities" side of the question rests on very few points.
 
----
 
-## Data quality summary
-
-- **CRS mismatch:** `amenity.gpkg` is in EPSG:4326; the other three layers are in EPSG:32737. Must reproject before any buffering/distance analysis.
-- **Sparse attribute schema:** the buildings layer carries many empty columns inherited from a generic OSM export template — only a handful of fields are usable.
-- **Low paved-road coverage:** only ~7% of road segments are paved, which is itself a finding, not just a limitation — but it also means the 300 m paved-road buffer will cover very little of the ward, so most residential buildings are likely to fall outside it.
-- **Thin health-facility data:** only 8 hospital buildings and zero clinics were captured, limiting the granularity of the health-access side of the analysis.
